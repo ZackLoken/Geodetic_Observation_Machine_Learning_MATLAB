@@ -1,2 +1,3 @@
 # GEOL_7900_ZackLoken
-Private shared repository with prof for sharing code from class assignments
+
+Repository containing modified code provided by Dr. Karen Luttrell for homework assignments in Geodetic Observation and Machine Learning (GEOL-7900). 

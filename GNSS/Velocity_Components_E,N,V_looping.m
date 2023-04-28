@@ -62,7 +62,7 @@ for row = 1:size(stationNames, 1)
     pY = polyfit(t, y, 1);
     pZ = polyfit(t, z, 1);
 
-    vX = pX(1);
+    vX = pX(1); % Velocity is slope coefficient (column 1) 
     vY = pY(1);
     vZ = pZ(1);
 
@@ -82,7 +82,7 @@ for row = 1:size(stationNames, 1)
     plot(Land{1}, Land{2}, 'black--');
     hold all
     plot(Coastline{1}, Coastline{2}, 'Color', 'black');
-    quiver(stationlon(1,:), stationlat(1,:), vX * 10000, vY * 10000, 'AutoScale', 'off', 'Color', 'red', 'LineWidth', 1.5);
+    quiver(stationlon(1,:), stationlat(1,:), vX * 1000, vY * 1000, 'AutoScale', 'off', 'Color', 'red', 'LineWidth', 1.5);
     title(sprintf('Station %s: Annual Velocity Map', station{1}));
     xlabel('Longitude', 'fontweight', 'bold');
     ylabel('Latitude', 'fontweight', 'bold');
@@ -94,3 +94,4 @@ end
 
 %%% Something wonky is going on when mapping velocities for stations in the
 %%% eastern hemisphere. Do I need to scale the longitudes?? Thoughts for later me.  
+%%% Modulus division to convert longitude to +/- 180
