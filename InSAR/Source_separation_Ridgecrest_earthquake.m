@@ -90,9 +90,9 @@ toc
   % of a 3D array (ny x nx x 4)
   %
     for k=1:4
-      ix=find(full_x{k}>=x0 & full_x{k} <=x1);
-      iy=find(full_y{k}>=y0 & full_y{k} <=y1);
-
+      ix=find(full_x{k}>=x0-dx/2 & full_x{k} <=x1+dx/2); % allow an extra half pixel for numerical precision issues
+      iy=find(full_y{k}>=y0-dy/2 & full_y{k} <=y1+dy/2);
+      
       U(:,:,k)=flipud(full_u{k}(iy,ix));
       C(:,:,k)=flipud(full_c{k}(iy,ix));
       M(:,:,k)=flipud(full_m{k}(iy,ix));
